@@ -1,14 +1,33 @@
-document.getElementById('btnencode').addEventListener('click',function(){
-    encode();
-},false);
+document.addEventListener('DOMContentLoaded', function () {
 
-document.getElementById('btndecode').addEventListener('click',function(){
-    decode();
-},false);
+	document.getElementById('btnencode').addEventListener('click',function(){
+	    encode();
+	},false);
 
-document.getElementById('btnclear').addEventListener('click',function(){
-    clear();
-},false);
+	document.getElementById('btndecode').addEventListener('click',function(){
+	    decode();
+	},false);
+
+	document.getElementById('btnclear').addEventListener('click',function(){
+	    clear();
+	},false);
+
+	document.getElementById('radHTML').addEventListener('click',function(){
+	    storeSelection();
+	},false);
+
+	document.getElementById('radURL').addEventListener('click',function(){
+	    storeSelection();
+	},false);
+
+	var htmlSelected = localStorage.htmlSelection == 'true';
+	document.getElementById('radHTML').checked = htmlSelected;
+	document.getElementById('radURL').checked = !htmlSelected;
+});
+
+function storeSelection(){
+	localStorage.htmlSelection = document.getElementById('radHTML').checked;
+}
 
 function clear() {
 	document.getElementById('textarea').value='';
