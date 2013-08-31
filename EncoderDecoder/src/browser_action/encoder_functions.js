@@ -2,14 +2,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	document.getElementById('btnencode').addEventListener('click',function(){
 	    encode();
+		storeSelection();
 	},false);
 
 	document.getElementById('btndecode').addEventListener('click',function(){
 	    decode();
+		storeSelection();
 	},false);
 
 	document.getElementById('btnclear').addEventListener('click',function(){
 	    clear();
+		storeSelection();
 	},false);
 
 	document.getElementById('radHTML').addEventListener('click',function(){
@@ -20,13 +23,16 @@ document.addEventListener('DOMContentLoaded', function () {
 	    storeSelection();
 	},false);
 
-	var htmlSelected = localStorage.htmlSelection == 'true';
+	var htmlSelected = localStorage.htmlSelection == undefined ? true : localStorage.htmlSelection == 'true';
+	var previousValue = localStorage.textarea == undefined ? '' : localStorage.textarea;
 	document.getElementById('radHTML').checked = htmlSelected;
 	document.getElementById('radURL').checked = !htmlSelected;
+	document.getElementById('textarea').value = previousValue;
 });
 
 function storeSelection(){
 	localStorage.htmlSelection = document.getElementById('radHTML').checked;
+	localStorage.textarea = document.getElementById('textarea').value;
 }
 
 function clear() {
