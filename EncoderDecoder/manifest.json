@@ -1,6 +1,6 @@
 {
   "name": "Encoder / Decoder",
-  "version": "1.1",
+  "version": "1.2",
   "manifest_version": 2,
   "description": "HTML encoder/decoder. URL encoder/decoder.",
   "homepage_url": "http://themergency.com/encoderdecoder",
